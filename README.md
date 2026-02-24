@@ -33,3 +33,5 @@ Updates
 1.1.1 - Fix Dealy readout and set (5D)
 <br>
 1.1.2 - Fix Mute State Feedback
+<br>
+1.2.0 - Fix EQState feedback, setAmpPower missing type arg for 5D, SeqFrequency typo in OcaFilterDB, switch-case block scope in eqBandToObjKey, destroy() syntax error, replace console.log with this.log in 5D delay, fix label typos in feedbacks and actions

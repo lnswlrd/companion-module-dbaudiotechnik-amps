@@ -288,7 +288,7 @@ export function updateA(self) {
 				{
 					id: 'eqband',
 					type: 'dropdown',
-					label: 'Channel',
+					label: 'Band',
 					choices: eqBandChoice(self.type),
 					default: 1,
 				},

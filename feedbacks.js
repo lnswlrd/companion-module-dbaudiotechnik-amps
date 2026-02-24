@@ -47,7 +47,7 @@ export async function updateF(self) {
 			},
 		},
 		EQState: {
-			name: 'Amp ´Channel EQ Bypass Feedback',
+			name: 'Amp Channel EQ Bypass Feedback',
 			type: 'boolean',
 			label: 'EQ State',
 			defaultStyle: {
@@ -77,14 +77,13 @@ export async function updateF(self) {
 			],
 			callback: (feedback) => {
 				if (self.ready) {
-					const eqCount = self.config.type === '5D' ? 1 : 2;
-					let index = (feedback.options.ch * eqCount) + feedback.options.eq;
-					return self.ampEQState[index];
+					const eqKey = feedback.options.eq === 0 ? 'eq1' : 'eq2';
+					return self.ampEQState[feedback.options.ch][eqKey];
 				}
 			},
 		},
 		DelayState: {
-			name: 'Amp ´Channel Delay Bypass Feedback',
+			name: 'Amp Channel Delay Bypass Feedback',
 			type: 'boolean',
 			label: 'Delay Bypass',
 			defaultStyle: {

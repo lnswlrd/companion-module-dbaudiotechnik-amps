@@ -102,15 +102,17 @@ export function eqBandChoice(type) {
 
 export function eqBandToObjKey(chId, type) {
 		switch (type) {
-			case '5D':
+			case '5D': {
 				const row = Math.floor((chId - 1) / 4);
 				const col = (chId - 1) % 4;
 				return `band_${row + 1 + col * 4}`;
-			default:
+			}
+			default: {
 				const base = Math.floor((chId - 1) / 32) + 1;
 				const offset = (chId - 1) % 32;
 				const result = base + offset * 4;
 				return `band_${result}`;
+			}
 		}
 }
 
