@@ -16,7 +16,7 @@ export async function updateV(self) {
 		{ variableId: 'amp_delay_ch_0', name: 'Delay Ch1' },
 		{ variableId: 'amp_delay_ch_1', name: 'Delay Ch2' },
 		{ variableId: 'amp_delay_ch_2', name: 'Delay Ch3' },
-		{	variableId: 'amp_delay_ch_3', name: 'Delay Ch4' },
+		{ variableId: 'amp_delay_ch_3', name: 'Delay Ch4' },
 		{ variableId: 'amp_delay_bypass_ch_0', name: 'Delay Bypass Ch1' },
 		{ variableId: 'amp_delay_bypass_ch_1', name: 'Delay Bypass Ch2' },
 		{ variableId: 'amp_delay_bypass_ch_2', name: 'Delay Bypass Ch3' },

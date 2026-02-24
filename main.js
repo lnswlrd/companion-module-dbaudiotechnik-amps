@@ -149,7 +149,7 @@ class ModuleInstance extends InstanceBase {
 		this.log('debug', 'Setting Delay for ' + ch + ' to ' + delay)
 		switch (this.type) {
 			case '5D':
-				console.log("debug", "Setting Delay for " + ch + " to " + delay);
+				this.log("debug", "Setting Delay for " + ch + " to " + delay);
 				this.ampDelays[ch].SetDelayTime(delay/1000).then(() => {
 					let varindex = `amp_delay_ch_${ch}`
 					this.setVariableValues({ [varindex]: delay })
@@ -469,11 +469,11 @@ class ModuleInstance extends InstanceBase {
 						if (map.get(this.getPowerPath(this.type))) {
 							this.powerObj = map.get(this.getPowerPath(this.type))
 							this.powerObj.GetPosition().then((v) => {
-								this.setAmpPower(v.item(0) === 0)
-								this.checkFeedbacks('PowerState')
-							})
-							this.powerObj.OnPositionChanged.subscribe((val) => {
-								this.setAmpPower(val === 0)
+							this.setAmpPower(v.item(0) === 0, this.type)
+							this.checkFeedbacks('PowerState')
+						})
+						this.powerObj.OnPositionChanged.subscribe((val) => {
+							this.setAmpPower(val === 0, this.type)
 								this.checkFeedbacks('PowerState')
 							})
 						}
@@ -578,7 +578,6 @@ class ModuleInstance extends InstanceBase {
 	// When module gets deleted
 	async destroy() {
 		clearInterval(this.intervalPower)
-		this.aescon.
 		this.aescon.removeAllEventListeners();
 		if(!this.aescon.is_closed()) {
 			this.aescon.close();
